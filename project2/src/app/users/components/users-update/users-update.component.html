@@ -1,0 +1,174 @@
+
+
+<div class="title">Update User</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 py-2">
+    <form [formGroup]="formValidation">
+      
+      <div class="form-group my-2">
+        <label for="firstnameField">First Name</label>
+        <input type="text" class="form-control" id="firstnameField" name="firstName" aria-describedby="emailHelp" placeholder="Ex. Ahmed" [formControlName]="'firstName'">
+   
+        
+        <div *ngIf="formValidation.get('firstName')?.touched && formValidation.get('firstName')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your first name to continue</div>
+    
+
+                
+        <div *ngIf="
+        (
+          formValidation.get('firstName')?.errors?.['minlength'] ||
+        formValidation.get('firstName')?.errors?.['maxlength'] 
+        )
+        &&
+!formValidation.get('firstName')?.errors?.['required'] 
+
+
+" class="e cross-validation-error-message alert alert-danger">min 5 max 15</div>
+
+
+
+      </div>
+      
+      <div class="form-group my-2">
+        <label for="lastnameField">Last Name</label>
+        <input  type="text" class="form-control" id="lastnameField" aria-describedby="emailHelp" name="lastName" placeholder="Ex. Ali"
+        [formControlName]="'lastName'">
+   
+        <div *ngIf="formValidation.get('lastName')?.touched && formValidation.get('lastName')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your last name name to continue</div>
+
+      
+        <div *ngIf="
+        (
+          formValidation.get('lastName')?.errors?.['minlength'] ||
+        formValidation.get('lastName')?.errors?.['maxlength'] 
+        )
+        &&
+!formValidation.get('lastName')?.errors?.['required'] 
+
+
+" class="e cross-validation-error-message alert alert-danger">min 5 max 15</div>
+
+
+
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="emailAddress" placeholder="Ex. example@gmail.com" [formControlName]="'emailAddress'">  
+        
+        <div *ngIf="formValidation.get('emailAddress')?.touched && formValidation.get('emailAddress')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your email Address to continue</div>
+
+   
+        
+        <div *ngIf="
+        (
+          formValidation.get('emailAddress')?.errors?.['minlength'] ||
+          formValidation.get('emailAddress')?.errors?.['email'] ||
+        formValidation.get('emailAddress')?.errors?.['maxlength'] 
+        )
+        &&
+!formValidation.get('emailAddress')?.errors?.['required'] 
+
+
+" class="e cross-validation-error-message alert alert-danger">Enter email or chars from 5 to 15</div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="ageField">Age</label>
+        <input type="number" class="form-control" id="ageField" aria-describedby="emailHelp" name="age" min="16" max="60"  placeholder="Ex. 22"  [formControlName]="'age'">
+
+
+        <div *ngIf="formValidation.get('age')?.touched && formValidation.get('age')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your age to continue</div>
+    
+    
+        <div *ngIf="
+        (
+          formValidation.get('age')?.errors?.['max'] ||
+        formValidation.get('age')?.errors?.['min'] 
+        )
+        &&
+!formValidation.get('age')?.errors?.['required'] &&
+formValidation.get('age')?.touched 
+
+
+" class="e cross-validation-error-message alert alert-danger">min 16 max 60</div>
+
+      </div>
+    
+    
+      <div class="form-group my-2">
+        <label for="PhoneNumberField">Phone Number</label>
+        <input type="text" class="form-control" id="PhoneNumberField" aria-describedby="emailHelp" name="phoneNumber" placeholder="Ex. 0599234567"  [formControlName]="'phoneNumber'">
+
+
+        <div *ngIf="formValidation.get('phoneNumber')?.touched && formValidation.get('phoneNumber')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your phone number  to continue</div>
+
+        <div *ngIf="
+                !formValidation.get('phoneNumber')?.errors?.['maxlength'] &&
+        !formValidation.get('phoneNumber')?.errors?.['required'] 
+
+
+        " class="e cross-validation-error-message alert alert-danger">Unknown phone number Address</div>
+
+
+
+      </div>
+    
+      <div class="form-group my-2">
+        <label for="postionField">Postion</label>
+        <input type="text" class="form-control" id="postionField" aria-describedby="emailHelp" name="postion" placeholder="Ex. Student"
+        [formControlName]="'postion' ">
+      
+            
+        <div *ngIf="formValidation.get('postion')?.touched && formValidation.get('postion')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your postion  to continue</div>
+
+
+        <div *ngIf="
+        (
+          formValidation.get('postion')?.errors?.['minlength'] ||
+        formValidation.get('postion')?.errors?.['maxlength'] 
+        )
+        &&
+!formValidation.get('postion')?.errors?.['required'] 
+
+
+" class="e cross-validation-error-message alert alert-danger">min 5 max 15</div>
+
+
+        
+      </div>
+    
+      <div class="form-group my-2">
+        <label for="addressField">Address</label>
+        <input type="text" class="form-control" id="addressField" aria-describedby="emailHelp" name="address" placeholder="Ex. Gaza - Palestine" [formControlName]="'address'">
+
+            
+        <div *ngIf="formValidation.get('address')?.touched && formValidation.get('address')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your address  to continue</div>
+
+        <div *ngIf="
+        (
+          formValidation.get('address')?.errors?.['minlength'] ||
+        formValidation.get('address')?.errors?.['maxlength'] 
+        )
+        &&
+!formValidation.get('address')?.errors?.['required'] 
+
+
+" class="e cross-validation-error-message alert alert-danger">min 5 max 15</div>
+
+    
+      
+
+     
+        
+      </div>
+      
+    
+      <button (click)="onFormSubbmited()" class="myBtn btn btn-primary  my-2">Update User</button>
+    </form>
+  </div>
+  <div class="col-2"></div>
+</div>
+
