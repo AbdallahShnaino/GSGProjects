@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/users/services/users.service';
 })
 export class UsersAddComponent implements OnInit {
   formValidation!:FormGroup
+  errorDialoge:boolean = false
   user:User =  {
     firstName: '',
     id: '',
@@ -32,6 +33,10 @@ export class UsersAddComponent implements OnInit {
 
   }
   onFormSubbmited() :void{
+    if (this.formValidation.status === 'INVALID'){
+      this.errorDialoge = true
+      return
+    }
     this.user.firstName = this.formValidation.value?.firstName
     this.user.lastName = this.formValidation.value?.lastName
     this.user.age = this.formValidation.value?.age
@@ -58,19 +63,5 @@ export class UsersAddComponent implements OnInit {
   }
 
 
-  /* 
-   Object.keys(this.formValidation.controls).forEach(key =>{
-    if (this.formValidation.get(key) instanceof FormGroup){
-          var f = this.formValidation.get(key) as FormGroup
-          Object.keys(f.controls).forEach( key =>{
-          console.log(key,this.formValidation.get(key)?.value)
-       }  
-      )
-    }else{
-      console.log(key,this.formValidation.get(key)?.value)
-    }
-   })
-
-*/
 
 }

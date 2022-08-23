@@ -5,6 +5,9 @@
   <div class="col-2"></div>
   <div class="col-8 py-2">
     <form [formGroup]="formValidation">
+      <div *ngIf="errorDialoge == true" class="e cross-validation-error-message alert alert-danger">
+        Something wrong! check all fields
+      </div>
       
       <div class="form-group my-2">
         <label for="firstnameField">First Name</label>
@@ -106,11 +109,17 @@ formValidation.get('age')?.touched
         <div *ngIf="formValidation.get('phoneNumber')?.touched && formValidation.get('phoneNumber')?.errors?.['required'] " class="e cross-validation-error-message alert alert-danger">Enter your phone number  to continue</div>
 
         <div *ngIf="
-                !formValidation.get('phoneNumber')?.errors?.['maxlength'] &&
-        !formValidation.get('phoneNumber')?.errors?.['required'] 
-
-
-        " class="e cross-validation-error-message alert alert-danger">Unknown phone number Address</div>
+        (
+          formValidation.get('phoneNumber')?.errors?.['maxlength'] ||
+          formValidation.get('phoneNumber')?.errors?.['minlength']        
+                        )
+                        &&
+        
+                    !    formValidation.get('phoneNumber')?.errors?.['required']        
+        
+                " class="e cross-validation-error-message alert alert-danger">
+                  Unknown phone number
+                </div>
 
 
 

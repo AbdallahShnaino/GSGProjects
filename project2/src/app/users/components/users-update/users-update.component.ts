@@ -12,6 +12,7 @@ FormsModule
 })
 export class UsersUpdateComponent implements OnInit {
   formValidation!:FormGroup
+  errorDialoge:boolean = false
 
   user:User =  {
     firstName: '',
@@ -39,6 +40,11 @@ export class UsersUpdateComponent implements OnInit {
 
   }
   onFormSubbmited() :void{
+    if (this.formValidation.status === 'INVALID'){
+      this.errorDialoge = true
+      return
+    }
+
     this.user.firstName = this.formValidation.value?.firstName
     this.user.lastName = this.formValidation.value?.lastName
     this.user.age = this.formValidation.value?.age
