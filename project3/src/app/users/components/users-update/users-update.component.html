@@ -1,0 +1,38 @@
+
+
+<div class="title">Update User</div>
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-8 py-2">
+    <form>
+      <img src="{{this.user.avatar}}" alt="">
+      
+      <div class="form-group my-2">
+        <label for="firstnameField">First Name</label>
+        <input type="text" class="form-control" id="firstnameField" name="firstName" aria-describedby="emailHelp" placeholder="Ex. Ahmed" [(ngModel)]="this.user.first_name">
+      </div>
+      
+      <div class="form-group my-2">
+        <label for="lastnameField">Last Name</label>
+        <input  type="text" class="form-control" id="lastnameField" aria-describedby="emailHelp" name="lastName" placeholder="Ex. Ali"
+        [(ngModel)]="this.user.last_name">
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="emailAddress" placeholder="Ex. example@gmail.com" [(ngModel)]="this.user.email">    
+      </div>
+
+    
+    
+
+    
+
+
+    
+      <button (click)="onFormSubbmited()" class="myBtn btn btn-primary  my-2">Update User</button>
+    </form>
+  </div>
+  <div class="col-2"></div>
+</div>
+
