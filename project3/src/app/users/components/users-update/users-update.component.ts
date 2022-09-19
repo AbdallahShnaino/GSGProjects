@@ -32,8 +32,8 @@ export class UsersUpdateComponent implements OnInit {
 
   }
   onFormSubbmited() :void{
-    this.usersService.update(this.user.id , this.user).subscribe(
-      res => console.log(`update response ${res}`)
+    this.usersService.update(this.user).subscribe(
+      res => console.log(res)
     )
     this.router.navigate(['users/view']);
   }

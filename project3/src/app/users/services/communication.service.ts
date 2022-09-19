@@ -9,7 +9,9 @@ export class CommunicationService {
   private dataObservable :Observable<any> = this.subjectData.asObservable()
 
   constructor() {}
-
+ 
+ // i can pass user details by using these functions  
+ 
 
   sendData(value: any = { key:'user',value:{} }):void{
     this.subjectData.next(value)
