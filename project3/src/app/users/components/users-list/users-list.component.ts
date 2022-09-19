@@ -62,10 +62,10 @@ export class UsersListComponent implements OnInit {
       )
       .subscribe(
         (res) => {
-          console.log(`delete response `,res);
+          console.log(`delete response (success)`);
         },
         (rej) => {
-          console.log(`delete response (failed) `,rej);
+          console.log(`delete response (failed) `);
         }
       );
   }
